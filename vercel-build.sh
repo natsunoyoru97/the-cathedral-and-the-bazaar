@@ -3,7 +3,7 @@ set -e # 任何一步失败则整体失败
 
 # 1. 安装 mdBook
 echo "Installing mdbook"
-curl -sSLf https://github.com/rust-lang/mdBook/releases/download/v0.4.52/mdbook-v0.4.40-x86_64-unknown-linux-gnu.tar.gz | tar -xz -C /tmp
+curl -sSLf https://github.com/rust-lang/mdBook/releases/download/v0.4.52/mdbook-v0.4.52-x86_64-unknown-linux-gnu.tar.gz | tar -xz -C /tmp
 mv /tmp/mdbook /usr/local/bin/
 mdbook --version || exit 1
 

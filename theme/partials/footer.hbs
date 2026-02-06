@@ -1,0 +1,30 @@
+{{! theme/footer.hbs }}
+<footer class="page-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <span class="footer-label">译本信息</span>
+            <span class="footer-text">
+                {{book.title}} · {{#if book.authors}}{{book.authors.[0]}}{{else}}译者{{/if}} · v{{book.version}}
+            </span>
+        </div>
+        
+        <div class="footer-section">
+            <span class="footer-label">联系方式</span>
+            <span class="footer-links">
+                <a href="mailto:your.email@example.com" title="邮箱" class="footer-link">📧</a>
+                <a href="https://github.com/yourusername" title="GitHub" class="footer-link">🐙</a>
+                <a href="/colophon.html" title="详细译制信息" class="footer-link">📄</a>
+            </span>
+        </div>
+        
+        <div class="footer-section">
+            <span class="footer-meta">
+                最后构建：{{build_time}} · 
+                <a href="https://github.com/yourusername/repo/commit/{{git_commit_short}}" 
+                   class="footer-meta-link" title="查看此次构建对应的提交">
+                   {{git_commit_short}}
+                </a>
+            </span>
+        </div>
+    </div>
+</footer>

@@ -9,7 +9,9 @@ mdbook --version || exit 1
 
 # 2. 安装 mdbook-admonish
 echo "Installing mdbook-admonish"
-curl --proto '=https' --tlsv1.2 -LsSf https://github.com/tommilligan/mdbook-admonish/releases/latest/download/mdbook-admonish-installer.sh | sh
+ADMONISH_URL="https://github.com/tommilligan/mdbook-admonish/releases/download/v1.20.0/mdbook-admonish-v1.20.0-x86_64-unknown-linux-gnu.tar.gz"
+curl -sSLf "$ADMONISH_URL" | tar -xz -C /tmp
+mv /tmp/mdbook-admonish /usr/local/bin/
 which mdbook-admonish || exit 1
 
 # 3. 执行构建

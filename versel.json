@@ -1,6 +1,6 @@
 {
-  "buildCommand": "curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.40/mdbook-v0.4.40-x86_64-unknown-linux-gnu.tar.gz | tar -xz -C /tmp && /tmp/mdbook build",
+  "buildCommand": "curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.40/mdbook-v0.4.40-x86_64-unknown-linux-gnu.tar.gz | tar -xz -C /tmp && mv /tmp/mdbook /usr/local/bin/ && curl --proto '=https' --tlsv1.2 -LsSf https://github.com/tommilligan/mdbook-admonish/releases/latest/download/mdbook-admonish-installer.sh | sh && cd /vercel/path0 && mdbook build",
   "outputDirectory": "book",
-  "installCommand": "curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.40/mdbook-v0.4.40-x86_64-unknown-linux-gnu.tar.gz | tar -xz -C /usr/local/bin/",
+  //"installCommand": "curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.40/mdbook-v0.4.40-x86_64-unknown-linux-gnu.tar.gz | tar -xz -C /usr/local/bin/",
   "framework": null
 }

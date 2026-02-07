@@ -1,0 +1,24 @@
+name: Close All Pull Requests
+on:
+  pull_request_target:
+    types: [opened, reopened]
+jobs:
+  close-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close Pull Request and Comment
+        run: |
+          COMMENT=$(cat <<EOF
+          您好！感谢您对本译本书稿的关注和贡献的热情。
+
+          **请注意，此仓库的维护模式是“仅接受Issue讨论，不接受Pull Request”。**
+
+          所有修改建议、内容纠错或翻译讨论，都欢迎您通过 [创建Issue](${{ github.server_url }}/${{ github.repository }}/issues/new) 的方式来提出。我会仔细阅读并处理每一个Issue。
+
+          因此，我将关闭这个Pull Request。如果您有任何建议，请移步至Issue区，非常感谢您的理解与支持！
+          EOF
+          )
+          gh pr comment "${{ github.event.pull_request.number }}" --body "$COMMENT"
+          gh pr close "${{ github.event.pull_request.number }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
